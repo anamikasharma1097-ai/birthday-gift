@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedang Turns 16 🎈</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Trebuchet MS", "Comic Sans MS", cursive;
+    overflow-x: hidden;
+    color: #3d2445;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.screen.active {
+    display: flex;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 9vw, 5.5rem);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+#intro {
+    background:
+        radial-gradient(circle at 10% 20%, #ffffff 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 15%, #ffffff 0 3px, transparent 4px),
+        radial-gradient(circle at 50% 80%, #ffffff 0 3px, transparent 4px),
+        linear-gradient(135deg, #9be7ff, #ffc8dd, #fff0a8);
+    background-size: 120px 120px, 150px 150px, 180px 180px, cover;
+}
+
+.game-card {
+    width: min(800px, 95%);
+    padding: 35px;
+    background: rgba(255,255,255,.72);
+    border: 4px solid white;
+    border-radius: 35px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 70px rgba(0,0,0,.18);
+}
+
+.game-card h1 {
+    color: #ff5277;
+    text-shadow: 4px 4px white;
+}
+
+.instructions {
+    margin: 12px auto 25px;
+    max-width: 600px;
+}
+
+.balloon-area {
+    height: 310px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.balloon {
+    position: absolute;
+    width: 78px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    transition: transform .15s;
+    box-shadow:
+        inset -12px -15px 20px rgba(0,0,0,.12),
+        inset 8px 8px 15px rgba(255,255,255,.35);
+    animation: float 3s ease-in-out infinite;
+}
+
+.balloon:hover {
+    transform: scale(1.12);
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 65px;
+    background: #555;
+    left: 50%;
+    top: 98px;
+}
+
+.balloon::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 13px solid currentColor;
+}
+
+.balloon:nth-child(1) {
+    background: #ff6680;
+    color: #ff6680;
+    left: 5%;
+    top: 110px;
+}
+
+.balloon:nth-child(2) {
+    background: #ffd166;
+    color: #ffd166;
+    left: 25%;
+    top: 25px;
+    animation-delay: .3s;
+}
+
+.balloon:nth-child(3) {
+    background: #70d6ff;
+    color: #70d6ff;
+    left: 46%;
+    top: 100px;
+    animation-delay: .7s;
+}
+
+.balloon:nth-child(4) {
+    background: #cdb4db;
+    color: #cdb4db;
+    left: 66%;
+    top: 20px;
+    animation-delay: 1s;
+}
+
+.balloon:nth-child(5) {
+    background: #8bd17c;
+    color: #8bd17c;
+    left: 84%;
+    top: 120px;
+    animation-delay: 1.3s;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-15px) rotate(4deg);
+    }
+}
+
+.pop {
+    animation: balloonPop .3s forwards !important;
+}
+
+@keyframes balloonPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.status {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #a74768;
+}
+
+/* =========================
+   OKRA CONFETTI
+========================= */
+
+.okra {
+    position: fixed;
+    top: -60px;
+    z-index: 100;
+    pointer-events: none;
+    font-size: 28px;
+    animation: okraFall linear forwards;
+}
+
+@keyframes okraFall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+/* =========================
+   CAKE
+========================= */
+
+#cakeScreen {
+    background: linear-gradient(135deg, #fff0ae, #ffd39b, #ffc8dd);
+}
+
+.cake-container {
+    margin: 40px 0 20px;
+    position: relative;
+}
+
+.cake {
+    position: relative;
+    width: 300px;
+    height: 190px;
+}
+
+.cake-top {
+    position: absolute;
+    width: 300px;
+    height: 90px;
+    top: 30px;
+    background: #ffbd45;
+    border: 5px solid #dc8d22;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.cake-body {
+    position: absolute;
+    width: 275px;
+    height: 115px;
+    left: 12px;
+    top: 65px;
+    background: linear-gradient(#ffbe48, #ee8d25);
+    border-radius: 0 0 25px 25px;
+    border: 5px solid #d77d1b;
+    z-index: 2;
+}
+
+.mango-cream {
+    position: absolute;
+    width: 255px;
+    height: 38px;
+    left: 22px;
+    top: 67px;
+    background: #fff1c4;
+    border-radius: 0 0 50% 50%;
+    z-index: 5;
+}
+
+.drip {
+    position: absolute;
+    background: #fff1c4;
+    width: 35px;
+    height: 35px;
+    border-radius: 0 0 50% 50%;
+    z-index: 6;
+}
+
+.drip:nth-child(1) {
+    left: 50px;
+    top: 85px;
+}
+
+.drip:nth-child(2) {
+    left: 130px;
+    top: 88px;
+}
+
+.drip:nth-child(3) {
+    right: 50px;
+    top: 85px;
+}
+
+.candle {
+    position: absolute;
+    width: 22px;
+    height: 75px;
+    top: -25px;
+    background: repeating-linear-gradient(
+        45deg,
+        #ff6fa5 0px,
+        #ff6fa5 8px,
+        white 8px,
+        white 16px
+    );
+    border-radius: 5px;
+    z-index: 20;
+}
+
+.candle-one {
+    left: 112px;
+}
+
+.candle-six {
+    left: 158px;
+}
+
+.flame {
+    position: absolute;
+    width: 20px;
+    height: 28px;
+    top: -29px;
+    left: 1px;
+    background: #ff9f1c;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 20px #ffd000;
+    animation: flame .5s infinite alternate;
+}
+
+@keyframes flame {
+    to {
+        transform: rotate(-45deg) scale(1.15);
+    }
+}
+
+.knife {
+    position: absolute;
+    right: -80px;
+    top: 50px;
+    font-size: 60px;
+    z-index: 50;
+    display: none;
+}
+
+.cutting .knife {
+    display: block;
+    animation: knifeCut 1.5s ease-in-out;
+}
+
+@keyframes knifeCut {
+    0% {
+        transform: translateX(120px) rotate(30deg);
+    }
+    45% {
+        transform: translateX(-50px) rotate(-30deg);
+    }
+    100% {
+        transform: translateX(120px) rotate(30deg);
+    }
+}
+
+.action-btn {
+    padding: 15px 30px;
+    border-radius: 999px;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 7px 0 rgba(0,0,0,.2);
+    transition: .15s;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+}
+
+.cut-btn {
+    background: #8b5cf6;
+}
+
+/* =========================
+   WISH
+========================= */
+
+#wishScreen {
+    background: radial-gradient(circle, #ffe999, #ffadc8, #bda6ff);
+}
+
+.star {
+    font-size: 90px;
+    animation: starGlow 1s infinite alternate;
+}
+
+@keyframes starGlow {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 25px white);
+    }
+}
+
+.wish-btn {
+    background: #ff5c8a;
+    margin-top: 25px;
+}
+
+/* =========================
+   MONKEY CONFETTI
+========================= */
+
+.monkey {
+    position: fixed;
+    top: -70px;
+    z-index: 200;
+    font-size: 35px;
+    pointer-events: none;
+    animation: monkeyFall linear forwards;
+}
+
+@keyframes monkeyFall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+/* =========================
+   GIFT
+========================= */
+
+#giftScreen {
+    background: linear-gradient(135deg, #c9b6ff, #ffc6df, #b8f2e6);
+}
+
+.gift-card {
+    width: min(650px, 95%);
+    padding: 45px 30px;
+    background: rgba(255,255,255,.75);
+    border: 4px solid white;
+    border-radius: 35px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 70px rgba(0,0,0,.15);
+}
+
+.gift-icon {
+    font-size: 80px;
+}
+
+.gift-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.yes,
+.no {
+    padding: 15px 45px;
+    border-radius: 999px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.yes {
+    background: #54c878;
+    box-shadow: 0 6px 0 #329651;
+}
+
+.no {
+    background: #ff5874;
+    box-shadow: 0 6px 0 #c83952;
+}
+
+#noMessage {
+    margin-top: 25px;
+}
+
+.angry {
+    font-size: 90px;
+    animation: shake .1s infinite alternate;
+}
+
+@keyframes shake {
+    from { transform: rotate(-8deg); }
+    to { transform: rotate(8deg); }
+}
+
+/* =========================
+   LETTER
+========================= */
+
+#noteScreen {
+    background:
+        linear-gradient(rgba(255,255,255,.72), rgba(255,255,255,.72)),
+        repeating-linear-gradient(
+            0deg,
+            #ffe4ed 0px,
+            #ffe4ed 31px,
+            #ffcbd9 32px
+        );
+}
+
+.note {
+    width: min(780px, 94%);
+    background: #fffdf5;
+    padding: 45px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.2),
+        0 0 0 5px white;
+    transform: rotate(-1deg);
+    position: relative;
+}
+
+.note::before {
+    content: "💌";
+    position: absolute;
+    right: 25px;
+    top: -30px;
+    font-size: 50px;
+    transform: rotate(10deg);
+}
+
+.note h2 {
+    text-align: center;
+    color: #d4577c;
+    margin-bottom: 30px;
+}
+
+.note p {
+    max-width: none;
+    margin-bottom: 18px;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 30px;
+    color: #b04d70;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    .game-card {
+        padding: 25px 15px;
+    }
+
+    .balloon-area {
+        height: 250px;
+    }
+
+    .balloon {
+        width: 55px;
+        height: 75px;
+    }
+
+    .balloon::after {
+        top: 74px;
+    }
+
+    .cake {
+        transform: scale(.78);
+        margin: -20px;
+    }
+
+    .note {
+        padding: 30px 20px;
+    }
+
+    .note p {
+        font-size: 1rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     BALLOON GAME
+========================= -->
+
+<section id="intro" class="screen active">
+
+    <div class="game-card">
+
+        <h1>🎈 OH NO.</h1>
+
+        <p class="instructions">
+            A wild <b>16-year-old Vedang</b> has appeared.<br><br>
+            Unfortunately, before the birthday can begin,
+            you must complete a very important mission:
+        </p>
+
+        <h2>💥 POP ALL THE BALLOONS 💥</h2>
+
+        <p class="instructions">
+            Click them. Destroy them. No balloon survives.
+        </p>
+
+        <div class="balloon-area">
+
+            <button class="balloon" onclick="popBalloon(this)"></button>
+            <button class="balloon" onclick="popBalloon(this)"></button>
+            <button class="balloon" onclick="popBalloon(this)"></button>
+            <button class="balloon" onclick="popBalloon(this)"></button>
+            <button class="balloon" onclick="popBalloon(this)"></button>
+
+        </div>
+
+        <div class="status" id="status">
+            🎈 Balloons remaining: 5
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CAKE
+========================= -->
+
+<section id="cakeScreen" class="screen">
+
+    <h1>🎂 YOU DID IT!</h1>
+
+    <p>
+        The balloons have been defeated.<br>
+        You have unlocked...
+    </p>
+
+    <h2>🥭 MANGO CAKE 🥭</h2>
+
+    <div class="cake-container" id="cakeContainer">
+
+        <div class="knife">🔪</div>
+
+        <div class="cake">
+
+            <div class="candle candle-one">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle candle-six">
+                <div class="flame"></div>
+            </div>
+
+            <div class="cake-top"></div>
+
+            <div class="mango-cream"></div>
+
+            <div class="drip"></div>
+            <div class="drip"></div>
+            <div class="drip"></div>
+
+            <div class="cake-body"></div>
+
+        </div>
+
+    </div>
+
+    <p>
+        A very sophisticated mango cake for a very sophisticated 16-year-old.
+    </p>
+
+    <button class="action-btn cut-btn" onclick="cutCake()">
+        🔪 CUT THE CAKE
+    </button>
+
+</section>
+
+
+<!-- =========================
+     WISH
+========================= -->
+
+<section id="wishScreen" class="screen">
+
+    <div class="star">✨</div>
+
+    <h1>MAKE A WISH</h1>
+
+    <p>
+        Close your eyes.<br><br>
+        Think of something you really, really want.<br>
+        Don't tell anyone. 🤫
+    </p>
+
+    <button class="action-btn wish-btn" onclick="makeWish()">
+        🌟 I MADE MY WISH
+    </button>
+
+</section>
+
+
+<!-- =========================
+     GIFT QUESTION
+========================= -->
+
+<section id="giftScreen" class="screen">
+
+    <div class="gift-card">
+
+        <div class="gift-icon">🎁</div>
+
+        <h2>Would u like to receive my gift?</h2>
+
+        <p>
+            Choose carefully.<br>
+            Your answer will definitely be judged.
+        </p>
+
+        <div class="gift-buttons">
+
+            <button class="yes" onclick="yesGift()">
+                YES 💗
+            </button>
+
+            <button class="no" onclick="noGift()">
+                NO 🙄
+            </button>
+
+        </div>
+
+        <div id="noMessage"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LETTER
+========================= -->
+
+<section id="noteScreen" class="screen">
+
+    <div class="note">
+
+        <h2>To Vedang 💌</h2>
+
+        <p>
+            honestly i dont have much to say and yeah happy 16th birthday,
+            this is a very vulnerable age where teenage adulting starts and
+            also alot of things will change for you.
+        </p>
+
+        <p>
+            some will be scary, some will be important, some you might think
+            were mistakes but overall they will help you to become a better
+            person (i hope you do).
+        </p>
+
+        <p>
+            nevertheless the most important thing is for you to be happy,
+            dont burden urself too much, dont lose your mind over things you
+            cant control and prioritize your happiness the most bcz thats
+            what matters.
+        </p>
+
+        <div class="signature">
+            from the bestest, smartest,<br>
+            (not tallest sadly) prettiest<br>
+            person you could ever meet,<br><br>
+            sneha** 💗
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   SCREEN SWITCHING
+========================= */
+
+function showScreen(id) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================
+   BALLOONS
+========================= */
+
+let balloonsLeft = 5;
+
+function popBalloon(balloon) {
+
+    if (balloon.classList.contains("pop")) return;
+
+    balloon.classList.add("pop");
+
+    balloonsLeft--;
+
+    document.getElementById("status").innerText =
+        "🎈 Balloons remaining: " + balloonsLeft;
+
+    createOkraBurst(balloon);
+
+    if (balloonsLeft === 0) {
+
+        document.getElementById("status").innerText =
+            "💥 BOOM. ALL BALLOONS DESTROYED.";
+
+        setTimeout(() => {
+
+            showScreen("cakeScreen");
+
+            createOkraConfetti();
+
+        }, 1000);
+    }
+}
+
+
+/* =========================
+   OKRA BURST
+========================= */
+
+function createOkraBurst(element) {
+
+    const rect = element.getBoundingClientRect();
+
+    for (let i = 0; i < 10; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.innerText = "🌱";
+        piece.style.position = "fixed";
+        piece.style.left = rect.left + rect.width / 2 + "px";
+        piece.style.top = rect.top + rect.height / 2 + "px";
+        piece.style.fontSize = "22px";
+        piece.style.zIndex = "999";
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 50 + Math.random() * 100;
+
+        piece.animate(
+            [
+                {
+                    transform: "translate(0,0) scale(1)",
+                    opacity: 1
+                },
+                {
+                    transform:
+                        `translate(
+                            ${Math.cos(angle) * distance}px,
+                            ${Math.sin(angle) * distance}px
+                        ) scale(.2)`,
+                    opacity: 0
+                }
+            ],
+            {
+                duration: 700,
+                easing: "ease-out"
+            }
+        );
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => piece.remove(), 750);
+    }
+}
+
+
+/* =========================
+   OKRA CONFETTI
+========================= */
+
+function createOkraConfetti() {
+
+    const okras = [
+        "🌱",
+        "🥬",
+        "🌿",
+        "✨"
+    ];
+
+    for (let i = 0; i < 55; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.className = "okra";
+
+        piece.innerText =
+            okras[Math.floor(Math.random() * okras.length)];
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.animationDuration =
+            2.5 + Math.random() * 3 + "s";
+
+        piece.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => piece.remove(), 6500);
+    }
+}
+
+
+/* =========================
+   CUT CAKE
+========================= */
+
+function cutCake() {
+
+    const cake = document.getElementById("cakeContainer");
+
+    cake.classList.add("cutting");
+
+    setTimeout(() => {
+
+        cake.classList.remove("cutting");
+
+        showScreen("wishScreen");
+
+    }, 1500);
+}
+
+
+/* =========================
+   WISH
+========================= */
+
+function makeWish() {
+
+    createMonkeyConfetti();
+
+    setTimeout(() => {
+
+        showScreen("giftScreen");
+
+    }, 1600);
+}
+
+
+/* =========================
+   MONKEY CONFETTI
+========================= */
+
+function createMonkeyConfetti() {
+
+    const monkeys = [
+        "🐒",
+        "🙈",
+        "🙉",
+        "🙊",
+        "🐵"
+    ];
+
+    for (let i = 0; i < 65; i++) {
+
+        const monkey = document.createElement("div");
+
+        monkey.className = "monkey";
+
+        monkey.innerText =
+            monkeys[Math.floor(Math.random() * monkeys.length)];
+
+        monkey.style.left =
+            Math.random() * 100 + "vw";
+
+        monkey.style.animationDuration =
+            2 + Math.random() * 3 + "s";
+
+        monkey.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+        document.body.appendChild(monkey);
+
+        setTimeout(() => monkey.remove(), 6500);
+    }
+}
+
+
+/* =========================
+   GIFT = NO
+========================= */
+
+function noGift() {
+
+    const message = document.getElementById("noMessage");
+
+    message.innerHTML = `
+        <div class="angry">😡</div>
+
+        <h2>VEDANG CLICK YES.</h2>
+
+        <p>
+            why are you saying no 😭<br>
+            click the correct button.
+        </p>
+    `;
+
+    const noButton = document.querySelector(".no");
+
+    noButton.style.transform =
+        `translate(
+            ${Math.random() * 100 - 50}px,
+            ${Math.random() * 40 - 20}px
+        )`;
+}
+
+
+/* =========================
+   GIFT = YES
+========================= */
+
+function yesGift() {
+
+    createMonkeyConfetti();
+
+    setTimeout(() => {
+
+        showScreen("noteScreen");
+
+    }, 700);
+}
+
+</script>
+
+</body>
+</html>
